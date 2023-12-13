@@ -3,6 +3,7 @@
 namespace AutoCode\AppConfig;
 
 use AutoCode\AppConfig\Interfaces\EnvInterface;
+use RuntimeException;
 
 final class Env implements EnvInterface
 {
@@ -64,6 +65,16 @@ final class Env implements EnvInterface
         if (is_file($this->envFile) && ($fp = fopen($this->envFile, 'rb'))) {
             while (($string = fgets($fp, 4096)) !== false) {
                 $this->parser($string);
+            }
+        }else{
+            $dir = dirname($this->envFile);
+
+            if(!is_dir($dir) && !mkdir($dir, 0777, true) && !is_dir($dir)) {
+                throw new RuntimeException(sprintf('Directory "%s" was not created', $dir));
+            }
+
+            if(!file_put_contents($this->envFile, '')){
+                throw new RuntimeException(sprintf('File "%s" was not created', $this->envFile));
             }
         }
     }
