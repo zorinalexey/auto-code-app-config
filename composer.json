@@ -1,0 +1,24 @@
+{
+    "name": "auto-code/app-config",
+    "description": "Классы для инициализации окружения и конфигурации приложения",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AutoCode\\AppConfig\\": "src/"
+        },
+        "files": [
+            "src/Utils/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Зорин Алексей",
+            "email": "zorinalexey59292@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "8.*"
+    }
+}
