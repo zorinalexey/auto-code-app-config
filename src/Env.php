@@ -73,7 +73,9 @@ final class Env implements EnvInterface
                 throw new RuntimeException(sprintf('Directory "%s" was not created', $dir));
             }
 
-            if(!file_put_contents($this->envFile, '')){
+            file_put_contents($this->envFile, '');
+
+            if(!is_file($this->envFile)){
                 throw new RuntimeException(sprintf('File "%s" was not created', $this->envFile));
             }
         }
