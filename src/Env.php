@@ -29,7 +29,7 @@ final class Env implements EnvInterface
             $config = Config::getInstance()->get(
                 configName: 'app',
                 default: [
-                    'app_path' => dirname(__DIR__, 3),
+                    'app_path' => dirname(__DIR__, 4),
                     'app_env' => 'dev',
                 ]
             );
